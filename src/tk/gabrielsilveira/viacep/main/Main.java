@@ -2,6 +2,7 @@ package tk.gabrielsilveira.viacep.main;
 
 import com.google.gson.JsonSyntaxException;
 import tk.gabrielsilveira.viacep.model.Address;
+import tk.gabrielsilveira.viacep.print.PrintJSON;
 import tk.gabrielsilveira.viacep.search.SearchCEP;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ public class Main {
         try{
             Address address = searchCEP.searchAddress(cep);
             System.out.println(address);
+            PrintJSON createFile = new PrintJSON();
+            createFile.printJson(address);
         } catch (RuntimeException e){
             System.out.println(e.getMessage());
             System.out.println("Finalizando o programa!");
